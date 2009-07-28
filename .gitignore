@@ -2,6 +2,7 @@ log/**/*
 log
 tmp/**/*
 tmp
+system
 config/database.yml
 db/schema.rb
 .bundle
