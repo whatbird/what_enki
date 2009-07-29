@@ -1,7 +1,7 @@
 # Configuration options for your blog - customise to taste
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
-title: My Enki Blog
-url:   http://loggish.the55.net
+title: '55log'
+url:   http://log.the55.net
 author: 
   name:    the55        # For copyright notice and ATOM feeds
   email:   55@the55.net # Exception emails will go here, and it is used in ATOM feeds

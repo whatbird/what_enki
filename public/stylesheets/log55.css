@@ -1,8 +1,8 @@
 /* High level containers */
 body 
 { 
-  color: black;
-  
+  background-color: #111;
+  color: #666;
   font: normal 12px verdana, arial, helvetica, sans-serif;
   line-height: 1.5;
   padding: 0px;
@@ -11,47 +11,61 @@ body
 
 #page_container
 {
-  width: 70em; 
   position: absolute;
   min-height: 400px;
+<<<<<<< HEAD
   
   color: black;
+	width: 100%;
+}
 
+#content {
+	width: 900px;
+  margin: 5px auto;
+	position: relative;
+	padding-right: 55px;
+/*	display: inline;*/
+=======
   margin-top: 5px;
   padding-left: 10px;
   border-right: solid 1px #aaaaaa;
   border-top: solid 1px #aaaaaa;
+>>>>>>> restyled
 }
 
 #footer
 {
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
+  position: relative;
   font-size: 8pt;
-  padding-top: 5px;
+/*  padding-top: 5px;*/
   padding-right: 15px;
   padding-bottom: 5px;
   padding-left: 5px;
   color: gray;
-  border-bottom: solid 1px #aaaaaa;
+/*  border-bottom: solid 1px #aaaaaa;*/
 }
 
 /* Headings */
 h1#page_heading
 {
   font-size: 24pt;
+	color: #000 !important;
 }
 
 h2
 {
-  font-size: 1.2em;
+<<<<<<< HEAD
+  font-size: 1.4em;
   color: #333333;
+=======
+  font-size: 1.2em;
+  color: #AAAAAA;
+>>>>>>> restyled
 }
 
 h2 a, h3, h4, h5
 {
-  color: #333333;
+  color: #999999;
 }
 
 /* Text */
@@ -79,7 +93,7 @@ strong
 
 a 
 {
-  color: #000051;
+  color: #663333;
   
   text-decoration: none;    
 }
@@ -105,21 +119,19 @@ img
   border: solid 1px black;
 }
 
+
+
+
 /* Two columns */
 #navigation 
 {
   position: absolute;
-  width: 10em;
+  width: 15em;
   top: -1px; 
   right: -1px;
 
   border: none;
-  border-left: solid 1px #aaaaaa;
-  border-bottom: solid 1px #aaaaaa;
-  border-top: solid 1px white;
-  border-right: solid 1px white;
-
-  padding: 10px;
+  padding: 5px;
 }
 
 #navigation h2
@@ -160,6 +172,7 @@ img
 {
   border: solid 1px black;
   width: 100%;
+	margin-left: 10px;
 }
 
 #navigation form
@@ -171,26 +184,52 @@ img
 {
   padding-right: 150px;
   padding-left: 0px;
-  padding-top: 15px;
+  padding-top: 0px;
   padding-bottom: 40px;
 }
 
+
+/* Posts */
+
+.post {
+  margin-bottom: 2em;
+}
+.post h2 {
+  background-color:#111;
+  display:inline;
+  padding:0.5em .8em;
+}
+
+.entrybody {
+  padding: 2em;
+  margin: -.5em 2em;
+  background-color: #000;
+  
+}
+
+/* Formatting */   
+
 div.meta
 {
- margin-top: 1em;
- margin-bottom: 3em; 
+ margin-right: .8em;
+ text-align: right;
 }
-/* Formatting */   
+
 
 .meta ul
 {
+  background-color: #111;
+  margin-top: -.5em;
   list-style: none;
   margin: 0px;
-  padding-left: 0em;
-  padding-bottom: 0.5em;
+  padding: 0.5em 0 0 1em;
   display: inline;
   color: #cccccc;
-  font-size: 10pt;
+<<<<<<< HEAD
+	font-size: 9pt;
+=======
+  font-size: 80%;
+>>>>>>> restyled
 }
 .archive-month .tags
 {
@@ -228,6 +267,10 @@ h2
   margin-bottom: 0px;
 }
 
+.clear {
+  clear: both;
+}
+
 .separator 
 {
   height: 1px;
@@ -239,6 +282,12 @@ h2
 label
 {
   margin-left: 1em;
+}
+
+input, textarea, select {
+  background-color: black;
+  border: 2px solid #333;
+  color: #999;
 }
 
 textarea, select
@@ -263,18 +312,57 @@ textarea
 
 .alt, .container_alt
 {
-  background-color: #fafafa;
+  background-color: #000;
 }
 
+/* COMMENTS */
+
+ul.commentlist {
+  list-style: none;
+  margin: 1em 0 3em 0;
+}
+
+.commentlist li {
+  width: 75%;
+  clear: both;
+  margin: 2em 0;
+  background-color: #222;
+}
+
+div.date 
+{
+	color: #999;
+	font-size: .8em;
+}
+
+.comment_info {
+  width: 150px;
+  background-color: #111;
+}
+
+.comment_body {
+  padding: .5em 1em;
+}
+
+
+.commentform {
+  width:70%;
+  margin: 2em 15%;
+}
+
+.commentform textarea {
+  width: 80%;
+}
 
 div.comments div.body
 {
   padding: 5px;
 }
+
 div.comments div.meta
 {
   min-height: 0px;
-  padding: 0px
+  padding: 0px;
 }
   
 div.comments div.separator
@@ -320,7 +408,7 @@ hr
 }
 
 .related {
-  background-color: #f8f8f8;
+  background-color: #000;
   border: 1px solid silver;
   padding: 10px;
 }
@@ -331,8 +419,8 @@ hr
 /* TOC */
 fieldset.toc
 {
-  float: right; 
-  border: dotted 1px black; 
+  float: right;
+  border: dotted 1px black;
   background-color: #fafafa;
   padding: 10px;
   margin-left: 5px;
