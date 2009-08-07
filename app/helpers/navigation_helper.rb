@@ -7,10 +7,33 @@ module NavigationHelper
   end
 
   def category_links_for_navigation
-    link = Struct.new(:name, :url)
-    @popular_tags ||= Tag.find(:all).reject {|tag| tag.taggings.empty? }.sort_by {|tag| tag.taggings.size }.reverse
-    @popular_tags.collect {|tag| link.new(tag.name, posts_path(:tag => tag.name)) }
+    popular_tags.collect {|tag| tag_link(tag) }
   end
+
+  def tag_link(tag)
+    link = Struct.new(:name, :url)
+    # @popular_tags ||= Tag.find(:all).reject {|tag| tag.taggings.empty? }.sort_by {|tag| tag.taggings.size }.reverse
+    # @popular_tags.collect {|tag| link.new(tag.name, posts_path(:tag => tag.name)) }
+    link.new(tag.name, posts_path(:tag => tag))
+  end
+
+  def popular_tags
+    @popular_tags || Tag.find(:all).reject {|tag| tag.taggings.empty? }.sort_by {|tag| tag.taggings.size }.reverse
+  end
+
+  def cloud_tags
+    Post.tag_counts
+  end
+  
+  def tag_cloud_nav
+    output = ''
+    tag_cloud cloud_tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class| 
+      link = tag_link(tag)
+      output << link_to(h(link.name), link.url, :class => css_class)
+    end
+    content_tag :div, output, :class => 'tag_cloud'
+  end
+  
 
   def class_for_tab(tab_name, index)
     classes = []

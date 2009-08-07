@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include TagsHelper
+
   def author
     Struct.new(:name, :email).new(enki_config[:author][:name], enki_config[:author][:email])
   end
@@ -17,4 +19,6 @@ module ApplicationHelper
       'base'   => error.last
     }[error.first.to_s]
   end
+
+
 end

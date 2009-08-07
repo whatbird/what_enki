@@ -14,6 +14,13 @@ class Post < ActiveRecord::Base
 
   validate                :validate_published_at_natural
 
+  IMAGE_FIELDS =  %w(image_1 image_2 image_3)
+  IMAGE_FIELDS.each do |field|
+    has_attached_file field, 
+                      :styles => { :medium => "500x400>",
+                                   :thumb => "100x100>" }
+  end
+
   def validate_published_at_natural
     errors.add("published_at_natural", "Unable to parse time") unless published?
   end
@@ -99,7 +106,15 @@ class Post < ActiveRecord::Base
   end
 
   def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
+    self.body_html = EnkiFormatter.format_as_xhtml(insert_images)
+  end
+
+  def insert_images
+    body_temp = body
+    IMAGE_FIELDS.each do |field|
+      body_temp = body_temp.gsub("!#{field}!", "!#{send(field).url(:medium)}!")
+    end
+    body_temp
   end
 
   def set_dates

@@ -235,3 +235,42 @@ describe Post, '.build_for_preview' do
     @post.tags.collect {|tag| tag.name}.should == ['ruby']
   end
 end
+
+describe Post, 'inserting images' do
+  before(:each) do
+    @post = Post.new(:title => 'My Post', :body => "body\n!image_1!\n\n something !image_2! and then \n!image_3!\n")
+
+    Post::IMAGE_FIELDS.each do |field|
+      @post.stub!(field).and_return(mock_model(Paperclip::Attachment, :url => "/#{field}.jpg"))
+    end
+  end
+
+  it 'should call insert_images on save' do
+    @post.should_receive(:insert_images).and_return("ok")
+    @post.save
+  end
+
+  describe 'aftermath' do
+    before(:each) do
+      @post.save
+    end
+
+    it 'should remove IMAGE_FIELD tags from the body_html' do
+      Post::IMAGE_FIELDS.each do |field|
+        @post.body_html.should_not match(/src=.#{field}/)
+      end
+    end
+
+    it 'should have the test_urls in body_html instead' do
+      Post::IMAGE_FIELDS.each do |field|
+        @post.body_html.should match(/src=.\/#{field}\.jpg/)
+      end
+    end
+
+    it 'should leave the IMAGE_FIELD tags in the body' do
+      Post::IMAGE_FIELDS.each do |field|
+        @post.body.should match(/\!#{field}\!/)
+      end
+    end
+  end
+end

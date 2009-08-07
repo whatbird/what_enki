@@ -18,7 +18,11 @@
     </div>
 
     <div id="navigation">
-      <h1 id="page_heading"><a href="<%=h config[:url] %>"><%=h config[:title] %></a></h1>
+      <h1 id="page_heading">
+        <a href="<%=h config[:url] %>">
+          <%= image_tag('55_log_logo.gif', :alt => config[:title] ) %>
+        </a>
+      </h1>
 
 
 
@@ -30,28 +34,20 @@
       </ul>
       <% unless category_links_for_navigation.empty? -%>
         <h2>tags</h2>
+        <% if 1  %>
+          <%= tag_cloud_nav %>
+        <% else %>
         <ul>
           <% page_links_for_navigation.each do |link| -%>
             <li><%= link_to(link.name, link.url) %></li>
           <% end -%>
         </ul>
-        <% unless category_links_for_navigation.empty? -%>
-          <h2>Categories</h2>
-          <ul>
-            <% category_links_for_navigation.each do |link| -%>
-              <li><%= link_to(link.name, link.url) %></li>
-            <% end -%>
-          </ul>
-        <% end -%>
-        <form method="get" id="sform" action="http://www.google.com/search">
-          <div>
-            <h2><label for="q">Search</label></h2>
 
-            <input type="text" id="q" value="" name="q">
-            <input type="hidden" name="sitesearch" value="<%= enki_config[:url] %>">
-          </div>
-        </form>
-      </div>
+        <% end -%>
+      <% end -%>
+      <form method="get" id="sform" action="http://www.google.com/search">
+        <div>
+          <h2><label for="q">Search</label></h2>
 
           <input type="text" id="q" value="" name="q" />
           <input type="hidden" name="sitesearch" value="<%=h config[:url] %>" />
