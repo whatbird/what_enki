@@ -26,12 +26,13 @@ module NavigationHelper
   end
   
   def tag_cloud_nav
-    output = ''
+    output = []
     tag_cloud cloud_tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class| 
+      # next if tag.count == 1
       link = tag_link(tag)
       output << link_to(h(link.name), link.url, :class => css_class)
     end
-    content_tag :div, output, :class => 'tag_cloud'
+    content_tag :div, output*' ', :class => 'tag_cloud'
   end
   
 

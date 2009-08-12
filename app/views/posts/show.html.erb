@@ -5,7 +5,10 @@
 <% content_for(:page_title) do -%>
 <%= post_title(@post) -%>
 <% end -%>
-<%= render :partial => 'posts/post', :locals => {:post => @post} %>
+<div class='post'>
+  <%= render :partial => 'posts/post', :locals => {:post => @post} %>
+</div>
+
 <ul class="commentlist">
   <% @post.approved_comments.each do |comment| -%>
   <li<%=raw cycle(' class="alt"', '') %> id="comment-<%= comment.id %>">

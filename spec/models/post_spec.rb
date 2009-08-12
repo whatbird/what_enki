@@ -240,13 +240,15 @@ describe Post, 'inserting images' do
   before(:each) do
     @post = Post.new(:title => 'My Post', :body => "body\n!image_1!\n\n something !image_2! and then \n!image_3!\n")
 
+    @file = File.new(File.join(File.dirname(__FILE__), '..',"fixtures",
+      "50x50.png"), 'rb')
     Post::IMAGE_FIELDS.each do |field|
-      @post.stub!(field).and_return(mock_model(Paperclip::Attachment, :url => "/#{field}.jpg"))
+      @post.send(field+'=', @file)
     end
   end
 
   it 'should call insert_images on save' do
-    @post.should_receive(:insert_images).and_return("ok")
+    @post.should_receive(:insert_images).at_least(:twice).and_return("ok")
     @post.save
   end
 
@@ -263,7 +265,7 @@ describe Post, 'inserting images' do
 
     it 'should have the test_urls in body_html instead' do
       Post::IMAGE_FIELDS.each do |field|
-        @post.body_html.should match(/src=.\/#{field}\.jpg/)
+        @post.body_html.should match(/src=.\/system\/#{field}.\//)
       end
     end
 
@@ -272,5 +274,17 @@ describe Post, 'inserting images' do
         @post.body.should match(/\!#{field}\!/)
       end
     end
+
+    it 'should have not // in the image path' do
+      @post.body_html.should_not match(/\/\//)
+    end
+
+    it 'should have the post id in the image path' do
+      Post::IMAGE_FIELDS.each do |field|
+        @post.body_html.should match(/#{field}s\/#{@post.id}\//)
+      end
+    end
   end
+
+
 end

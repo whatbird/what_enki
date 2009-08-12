@@ -158,8 +158,8 @@ img
 
 #navigation input
 {
-  border: solid 1px black;
   width: 100%;
+  margin-left: 1em;
 }
 
 #navigation form
@@ -271,6 +271,12 @@ h2
 label
 {
   margin-left: 1em;
+}
+
+input, textarea, select {
+  background-color: black;
+  border: 1px solid #333;
+  color: #999;
 }
 
 textarea, select

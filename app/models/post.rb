@@ -9,7 +9,8 @@ class Post < ActiveRecord::Base
   before_validation       :generate_slug
   before_validation       :set_dates
   before_save             :apply_filter
-
+  after_create            :apply_filter_again
+  
   validates_presence_of   :title, :slug, :body
 
   validate                :validate_published_at_natural
@@ -107,6 +108,11 @@ class Post < ActiveRecord::Base
 
   def apply_filter
     self.body_html = EnkiFormatter.format_as_xhtml(insert_images)
+  end
+
+  def apply_filter_again
+    apply_filter
+    self.save
   end
 
   def insert_images
