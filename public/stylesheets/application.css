@@ -68,6 +68,11 @@ strong
 {
   color: #333333;
 }
+
+code {
+  border-left: 5px solid #333;
+  display: block;
+}
 /* Links */
 .openid
 {
