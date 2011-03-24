@@ -18,8 +18,8 @@ class Post < ActiveRecord::Base
   IMAGE_FIELDS =  %w(image_1 image_2 image_3)
   IMAGE_FIELDS.each do |field|
     has_attached_file field, 
-    :path => ":rails_root/public/posts/:id/:style.:extension",
-    :url => "/posts/:id/:style.:extension",
+    :path => ":rails_root/public/posts/:id/:attachment-:style.:extension",
+    :url => "/posts/:id/:attachment-:style.:extension",
     :styles => { :medium => "900x900>", :thumb => "100x100>" }
   end
 
