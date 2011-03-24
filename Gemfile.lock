@@ -61,7 +61,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mysql2 (0.2.6)
     nokogiri (1.4.4)
+    paperclip (2.3.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -125,6 +127,8 @@ DEPENDENCIES
   formtastic
   hpricot
   lesstile
+  mysql2
+  paperclip
   rack-openid
   rails (= 3.0.4)
   rspec

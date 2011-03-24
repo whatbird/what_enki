@@ -13,24 +13,10 @@ body
 {
   position: absolute;
   min-height: 400px;
-<<<<<<< HEAD
-  
-  color: black;
+  color: #666;
 	width: 100%;
-}
-
-#content {
-	width: 900px;
-  margin: 5px auto;
-	position: relative;
-	padding-right: 55px;
-/*	display: inline;*/
-=======
   margin-top: 5px;
-  padding-left: 10px;
-  border-right: solid 1px #aaaaaa;
-  border-top: solid 1px #aaaaaa;
->>>>>>> restyled
+  border: 0;
 }
 
 #footer
@@ -48,19 +34,14 @@ body
 /* Headings */
 h1#page_heading
 {
+  margin-top: 0;
   font-size: 24pt;
 	color: #000 !important;
 }
 
-h2
-{
-<<<<<<< HEAD
-  font-size: 1.4em;
-  color: #333333;
-=======
+h2{
   font-size: 1.2em;
   color: #AAAAAA;
->>>>>>> restyled
 }
 
 h2 a, h3, h4, h5
@@ -119,19 +100,14 @@ img
   border: solid 1px black;
 }
 
-
-
-
 /* Two columns */
 #navigation 
 {
   position: absolute;
-  width: 15em;
-  top: -1px; 
-  right: -1px;
-
+  width: 122px;
+  top: 0; 
+  right: 0;
   border: none;
-  padding: 5px;
 }
 
 #navigation h2
@@ -200,12 +176,8 @@ img
   padding:0.5em .8em;
 }
 
-.entrybody {
-  padding: 2em;
-  margin: -.5em 2em;
-  background-color: #000;
-  
-}
+.entrybody{padding:2em;margin:-.5em 2em;}
+.entrybody img { display: block; margin: 0 auto;}
 
 /* Formatting */   
 
@@ -225,11 +197,7 @@ div.meta
   padding: 0.5em 0 0 1em;
   display: inline;
   color: #cccccc;
-<<<<<<< HEAD
-	font-size: 9pt;
-=======
   font-size: 80%;
->>>>>>> restyled
 }
 .archive-month .tags
 {
@@ -409,7 +377,7 @@ hr
 
 .related {
   background-color: #000;
-  border: 1px solid silver;
+/*  border: 1px solid silver;*/
   padding: 10px;
 }
 
