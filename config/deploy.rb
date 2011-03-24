@@ -7,7 +7,6 @@ namespace :deploy do
   task :after_update_code do
     puts " \n\t COPY DB \n"
     run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run 'bundle install'
   end
 end
 

@@ -39,4 +39,4 @@ group :development, :test do
 end
 
 
-gem 'paperclip'
+gem 'paperclip', '2.3.8'

@@ -7,4 +7,5 @@ db/schema.rb
 .bundle
 *.log
 public/system/**/*
+public/posts
 public/system
