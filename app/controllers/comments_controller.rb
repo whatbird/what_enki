@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
 
     unless response.headers[Rack::OpenID::AUTHENTICATE_HEADER] # OpenID gem already provided a response
       if @comment.save
-        redirect_to post_path(@post)
+        redirect_to post_path(@post, :anchor => "comment_#{@comment.id}")
       else
         render :template => 'posts/show'
       end

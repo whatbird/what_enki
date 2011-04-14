@@ -11,7 +11,13 @@ class Comment < ActiveRecord::Base
   after_destroy         :denormalize
 
   validates_presence_of :author, :body, :post
-  validate :open_id_error_should_be_blank
+  validate :open_id_error_should_be_blank, :not_a_robot
+
+  attr_accessor :email
+
+  def not_a_robot
+    errors.add(:base, "Humans only") unless email == 'human'
+  end
 
   def open_id_error_should_be_blank
     errors.add(:base, openid_error) unless openid_error.blank?
@@ -62,7 +68,7 @@ class Comment < ActiveRecord::Base
 
   class << self
     def protected_attribute?(attribute)
-      [:author, :body].include?(attribute.to_sym)
+      [:author, :body, :email].include?(attribute.to_sym)
     end
 
     def new_with_filter(params)
