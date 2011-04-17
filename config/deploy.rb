@@ -7,6 +7,9 @@ namespace :deploy do
   task :after_update_code do
     puts " \n\t COPY DB \n"
     run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+
+    #create symlinks
+    run "ln -s #{shared_path}/assets/posts #{release_path}/public/posts"
   end
 end
 
@@ -75,7 +78,7 @@ namespace :deploy do
       val=self.send("db_#{param}")
       database_configuration<<"  #{param}: #{val}\n"
     end
-    
+
     run "mkdir -p #{deploy_to}/#{shared_dir}/config"
     put database_configuration, "#{deploy_to}/#{shared_dir}/config/database.yml"
   end

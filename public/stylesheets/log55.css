@@ -15,7 +15,6 @@ body
   min-height: 400px;
   color: #666;
 	width: 100%;
-  margin-top: 5px;
   border: 0;
 }
 
@@ -34,9 +33,13 @@ body
 /* Headings */
 h1#page_heading
 {
+  border: 1px solid #333;
   margin-top: 0;
   font-size: 24pt;
-	color: #000 !important;
+	color: #666;
+	width: 120px; height: 194px;
+	overflow: hidden; text-indent: -9999px;
+	background: url(../images/55_log_logo.gif);
 }
 
 h2{
