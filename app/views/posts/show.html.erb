@@ -33,7 +33,7 @@
     <div class="errors">
       <h3>Comment not added!</h3>
       <ul>
-        <% @comment.errors.sort_by(&:first).each do |error| -%>
+        <% @comment.errors.each do |error| -%>
           <li><%= format_comment_error(error) %></li>
         <% end -%>  
       </ul>
