@@ -1,7 +1,7 @@
 /* High level containers */
 body 
 { 
-  background-color: #111;
+  background-color: #FFF;
   color: #666;
   font: normal 12px verdana, arial, helvetica, sans-serif;
   line-height: 1.5;
@@ -33,14 +33,11 @@ body
 /* Headings */
 h1#page_heading
 {
-  border: 1px solid #333;
   margin-top: 0;
   font-size: 24pt;
 	color: #666;
-	width: 120px; height: 194px;
-	overflow: hidden; text-indent: -9999px;
-	background: url(../images/55_log_logo.gif);
 }
+h1#page_heading img {border: none; margin: 10px;}
 
 h2{
   font-size: 1.2em;
@@ -106,8 +103,8 @@ img
 /* Two columns */
 #navigation 
 {
-  position: absolute;
-  width: 122px;
+  position: fixed;
+  width: 140px;
   top: 0; 
   right: 0;
   border: none;
@@ -127,10 +124,9 @@ img
 
 #navigation ul
 {
-  padding-left: 10px;
-  
-  margin-left: 0px;
-  margin-top: 0px;
+  text-align: right;
+  padding: 0;
+  margin: 0 52px 0 0;
   list-style: none;
 }
   
@@ -138,6 +134,18 @@ img
 {
   padding-left: 0px;
   margin-left: 0px;
+  margin-bottom: 3px;
+}
+#navigation ul li a{
+  background: #111;
+  margin-bottom: 3px;
+  padding: 2px 0.5em;
+  color: #F0F0F0;
+}
+#navigation ul li a:hover{
+  background: #CCC;
+  color: #663333;
+  text-decoration: none;
 }
 
 #navigation h3
@@ -174,7 +182,7 @@ img
   margin-bottom: 2em;
 }
 .post h2 {
-  background-color:#111;
+  background-color:#F0F0F0;
   display:inline;
   padding:0.5em .8em;
 }
@@ -193,7 +201,7 @@ div.meta
 
 .meta ul
 {
-  background-color: #111;
+  background-color: #F0F0F0;
   margin-top: -.5em;
   list-style: none;
   margin: 0px;
